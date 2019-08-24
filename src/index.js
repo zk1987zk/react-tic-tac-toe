@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { createStore } from 'redux';
 
 // class Square extends React.Component {
 //     render() {
@@ -130,8 +131,10 @@ class Game extends React.Component {
         const winner = calculateWinner(current.squares);
 
         const moves = history.map((step, move) => {
-            const descPos = " at column " + step.position[move][0] +
-            ' and row' + step.position[move][1];
+            const descPos = move ? 
+            " at column " + step.position[move][0] +
+            ' and row' + step.position[move][1] :
+            '';
             const desc = move ?
             'Go to move #' + move :
             'Go to game start';
